@@ -1,0 +1,797 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap');
+:root {
+    /* dark shades of primary color*/
+    --clr-primary-1: hsl(205, 86%, 17%);
+    --clr-primary-2: hsl(205, 77%, 27%);
+    --clr-primary-3: hsl(205, 72%, 37%);
+    --clr-primary-4: hsl(205, 63%, 48%);
+    /* primary/main color */
+    --clr-primary-5: hsl(205, 78%, 60%);
+    /* lighter shades of primary color */
+    --clr-primary-6: hsl(205, 89%, 70%);
+    --clr-primary-7: hsl(205, 90%, 76%);
+    --clr-primary-8: hsl(205, 86%, 81%);
+    --clr-primary-9: hsl(205, 90%, 88%);
+    --clr-primary-10: hsl(205, 100%, 96%);
+    /* darkest grey - used for headings */
+    --clr-grey-1: hsl(209, 61%, 16%);
+    --clr-grey-2: hsl(211, 39%, 23%);
+    --clr-grey-3: hsl(209, 34%, 30%);
+    --clr-grey-4: hsl(209, 28%, 39%);
+    /* grey used for paragraphs */
+    --clr-grey-5: hsl(210, 22%, 49%);
+    --clr-grey-6: hsl(209, 23%, 60%);
+    --clr-grey-7: hsl(211, 27%, 70%);
+    --clr-grey-8: hsl(210, 31%, 80%);
+    --clr-grey-9: hsl(212, 33%, 89%);
+    --clr-grey-10: hsl(210, 36%, 96%);
+    --clr-white: #fff;
+    --clr-red-dark: hsl(360, 67%, 44%);
+    --clr-red-light: hsl(360, 71%, 66%);
+    --clr-green-dark: hsl(125, 67%, 44%);
+    --clr-green-light: hsl(125, 71%, 66%);
+    --clr-black: #222;
+    --ff-primary: "Roboto", sans-serif;
+    --ff-secondary: "Open Sans", sans-serif;
+    --transition: all 0.3s linear;
+    --spacing: 0.1rem;
+    --radius: 0.25rem;
+    --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    --max-width: 1170px;
+    --fixed-width: 620px;
+  }
+  /*
+  =============== 
+  Global Styles
+  ===============
+  */
+  
+  *,
+  ::after,
+  ::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: var(--ff-secondary);
+    background: rgb(235, 229, 229);
+    color: var(--clr-grey-1);
+    z-index: 1;
+    line-height: 1.5;
+    font-size: 0.875rem;
+  }
+  ul {
+    list-style-type: none;
+  }
+  a {
+    text-decoration: none;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: var(--spacing);
+    text-transform: capitalize;
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+    font-family: var(--ff-primary);
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 1.25rem;
+  }
+  h4 {
+    font-size: 0.875rem;
+  }
+  p {
+    margin-bottom: 1.25rem;
+    color: var(--clr-grey-5);
+  }
+  @media screen and (min-width: 800px) {
+    h1 {
+      font-size: 4rem;
+    }
+    h2 {
+      font-size: 2.5rem;
+    }
+    h3 {
+      font-size: 1.75rem;
+    }
+    h4 {
+      font-size: 1rem;
+    }
+    body {
+      font-size: 1rem;
+    }
+    h1,
+    h2,
+    h3,
+    h4 {
+      line-height: 1;
+    }
+  }
+  /*  global classes */
+  
+  /* section */
+  .section {
+    padding: 5rem 0;
+  }
+  
+  .section-center {
+    width: 90vw;
+    margin: 0 auto;
+    max-width: 1170px;
+  }
+  @media screen and (min-width: 992px) {
+    .section-center {
+      width: 95vw;
+    }
+  }
+  main {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+  }
+  .header {
+      width: 100%;
+      height: 300px;
+        background: url('./images/image-hero-desktop.jpg');
+  }
+  /*
+  =============== 
+  Navbar
+  ===============
+  */
+  nav {
+    background: transparent;
+    color: white;
+  }
+  .nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+  .nav-header h2{
+    font-family: 'Cairo', sans-serif;
+    }
+  .nav-header span{
+    color: var(--clr-primary-5);
+      
+  }
+  .nav-toggle {
+    font-size: 1.5rem;
+    color: var(--clr-primary-5);
+    background: transparent;
+    border-color: transparent;
+    transition: var(--transition);
+    cursor: pointer;
+  }
+  .nav-toggle:hover {
+    color: var(--clr-primary-1);
+    transform: rotate(90deg);
+  }
+  .logo {
+    height: 40px;
+  }
+  .links a {
+    color: #fff;
+    font-size: 1rem;
+    text-transform: capitalize;
+    letter-spacing: var(--spacing);
+    display: block;
+    font-weight: bolder;
+    padding: 0.5rem 1rem;
+    transition: var(--transition);
+  }
+  .links a:hover {
+   text-decoration: underline 2px solid var(--clr-primary-5);
+    padding-left: 1.5rem;
+    transition: text-decoration 0.5s ease-in-out;
+  }
+  .social-icons {
+    display: none;
+  }
+  .links {
+    height: 0;
+    overflow: hidden;
+    transition: var(--transition);
+  }
+  .show-links {
+    height: 10rem;
+  }
+ .upper{
+   width: 60%;
+   height: 300px;
+   background: #fff;
+   z-index: 5;
+   position: absolute;
+   left: 20%;
+   display: flex;
+   border-radius: 10px;
+   flex-direction: column;
+   text-align: center;
+   padding: 10px 20px;
+   top: 250px;
+ }
+ .upper-text{
+  width: 100%;
+  height: 100px;
+  display: flex;
+  font-family: 'Cairo', sans-serif;
+  padding-top: 20px;
+  flex-direction: column;
+  font-family: 'Cairo', sans-serif;
+ }
+ .upper-btns{
+   width: 100%;
+   height: 200px;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+ }
+ .Btn{
+   width: 200px;
+   height: 56px;
+   border-radius: 56px !important;
+   border: none;
+   font-size: 1.1rem;
+   cursor: pointer;
+   margin: 0 50px;
+   font-family: 'Cairo', sans-serif;
+ }
+ #backthisBtn {
+  background: rgb(73, 165, 57);
+  color: #fff;
+ }
+ .upper-btns img{
+   visibility: hidden;
+ }
+ .stats{
+   width: 60%;
+   height: 250px;
+   background: #fff;
+   z-index: 5;
+   position: absolute;
+   left: 20%;
+   display: flex;
+   border-radius: 10px;
+   flex-direction: column;
+   text-align: center;
+   padding: 10px 20px;
+   top: 600px;
+ }
+ .stats-upper{
+   width: 100%;
+   height: 150px;
+   display: flex;
+   flex-direction: row;
+ }
+ .stats-upper1{
+   width: 33.33%;
+   height: 150px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+ }
+ .stats-down{
+   width: 100%;
+   height: 100px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ }
+ .progress{
+   width: 90%;
+   height: 30px;
+  
+ }
+ #stat-1,#stat-2{
+   border-right: 2px solid rgb(141, 140, 140);
+ }
+ #overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 5; /* Specify a stack order in case you're using a different order for other elements */
+}
+
+ .modal-back-project{
+   width: 60%;
+   height: 1000px;
+   background: #fff;
+   z-index: -999;
+   visibility: hidden;
+   border-radius: 10px;
+   display: flex;
+   flex-direction: column;
+   left: 25%;
+   padding: 20px 30px;
+   top: 100px;
+   position: absolute;
+ }
+ .modal-active{
+   z-index: 10;
+   visibility: visible;
+ }
+ .modal-header{
+   width: 100%;
+   font-family: 'Cairo', sans-serif;
+   height: 100px;
+ }
+ .modal-header h3{
+  font-family: 'Cairo', sans-serif;
+
+ }
+ .modal-header p{
+   position: relative;
+   top: -40px;
+ }
+ .close-modal{
+   position: relative;
+   left: 95%;
+   cursor: pointer;
+   top: -40px;
+ }
+ .modal-box{
+   width: 100%;
+   height: 20% ;
+   margin: 20px 0;
+   border-radius: 10px;
+   border:1px solid rgb(209, 209, 209);
+   padding: 10px 10px;
+ }
+ .modal-box-upper{
+   width: 100%;
+   height: 30%;
+   display: flex;
+   flex-direction: row;
+ }
+ .modal-box-upper p{
+   width: max-content !important;
+   margin-left: 5%;
+ }
+ #checkbox{
+  width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid rgb(0, 0, 0);
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+ }
+ #checkbox:checked{
+   background-color: rgb(73, 165, 57);
+   border: none;
+   padding: 5px;
+ }
+ label{
+   margin: 0 5px;
+   color: rgb(73, 165, 57);
+   font-family: 'Cairo', sans-serif;
+   font-size: 1rem;
+ }
+ label span{
+   color: #222;
+   font-weight: bold;
+ }
+ .modal-box p{
+   width: 88%;
+   position: relative;
+   left: 28px;
+   font-size: 1rem;
+ }
+ .left{
+   position: relative;
+   left: 100px;
+   color: rgb(99, 99, 99);
+   font-weight: bolder;
+ }
+ .mahagony{
+   color: rgb(99, 99, 99);
+ }
+ .pledge{
+   width: 100%;
+   height: 10%;
+   display: flex;
+   flex-direction: row;
+ }
+ #pledge-amt{
+   width: 120px !important;
+   height: 40px !important;
+   border-radius: 40px;
+   border: 1px solid rgb(73,165,57);
+   margin-left: 20%;
+   padding: 0 15px;
+   -webkit-appearance: none;
+ }
+
+ #pledge-amt:focus{
+   outline: none;
+ }
+ .continue-btn{
+  width: 120px !important;
+  height: 40px !important;
+  border-radius: 40px;
+  background: rgb(73,165,57);
+  border: none;
+  cursor: pointer;
+  color: white;
+  margin-left: 20%;
+ }
+ .thankyou-modal{
+   width: 60%;
+   height: 300px;
+   background: #fff;
+   z-index: -999px;
+   visibility: hidden;
+   position: relative;
+   left: 25%;
+   display: flex;
+   padding: 10px 20px;
+   flex-direction: column;
+ }
+ .thankyou-modal-visible{
+   visibility: visible;
+   z-index: 45;
+ }
+ .checkbox{
+   width: 100%;
+   height: 100px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ }
+ .thankyou-modal-text{
+   width: 100%;
+   height: 150px;
+   text-align: center;
+ }
+ .thankyou-modal-btn{
+   width: 100px !important;
+   height: 40px;
+   border-radius: 40px;
+   border: none;
+   background: #3CB3AB;
+   color: white;
+   font-weight: bold;
+   cursor: pointer;
+ }
+ #overlay2{
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 15; /* Specify a stack order in case you'*/
+ }
+ .bottom{
+   width: 60%;
+   height: 1200px;
+   background: #fff;
+   z-index: 5;
+   position: absolute;
+   left: 20%;
+   display: flex;
+   border-radius: 10px;
+   flex-direction: column;
+   padding: 10px 20px;
+   top: 900px;
+ }
+ .bottom-1{
+   width: 100%;
+   height: 25%;
+   padding: 10px 20px;
+  font-family: 'Cairo', sans-serif;
+   
+ }
+ .bottom-2{
+  width: 100%;
+  height: 75%;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+
+ }
+ .bottom-21{
+   width: 100%;
+   height: 33.33%;
+   display: flex;
+   flex-direction: column;
+   border: #3CB3AB 1px solid;
+   padding: 10px 20px;
+   border-radius: 5px;
+   margin: 20px 0px;
+ }
+ .bottom-21-header{
+   width: 100%;
+   height: 30%;
+   display: flex;
+   justify-content: space-between;
+   flex-direction: row;
+ }
+ .bottom-21-body{
+  width: 100%;
+  height: 40%;
+  display: flex;
+  flex-direction: row;
+}
+.bottom-21-bottom{
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.bottom-21-bottom span{
+  font-size: 0.8rem;
+  color: rgb(168, 168, 168);
+}
+
+  @media screen and (min-width: 800px) {
+    .nav-center {
+      max-width: 1170px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+    }
+    .nav-header {
+      padding: 0;
+    }
+    .nav-toggle {
+      display: none;
+    }
+    .links {
+      height: auto;
+      display: flex;
+    }
+    .links a {
+      padding: 0;
+      margin: 0 0.5rem;
+    }
+    .links a:hover {
+      padding: 0;
+      background: transparent;
+    }
+    
+  }
+  @media screen and (min-width: 1000px) and (max-width:1300px) {
+   
+  }
+  @media screen and (min-width:800px) and (max-width:999px) {
+    
+    #bookmarkBtn{
+      width: 0;
+      height: 0;
+      visibility: hidden;
+    }
+   .upper-btns img{
+     position: relative;
+     left: -10%;
+   }
+   .upper-btns img{
+    visibility:visible;
+  }
+   .modal-back-project{
+     width: 70%;
+   }
+   .thankyou-modal{
+     width: 70%;
+   }
+  }
+  @media screen and (min-width:570px) and (max-width:799px){
+      .upper{
+        height: 350px;
+      }
+      .stats{
+        position: absolute;
+        top: 650px;
+      }
+      #bookmarkBtn{
+        width: 0;
+        height: 0;
+        visibility: hidden;
+      }
+      #backthisBtn{
+        margin: 0;
+      }
+      .upper-btns{
+        position: relative;
+        top: 10%;
+      }
+      .upper-btns img{
+        visibility:visible;
+      }
+      .upper-text p{
+        font-size: 1rem;
+      }
+      .upper-text h3{
+        font-size: 1.2rem;
+      }
+     .upper-btns img{
+       position: relative;
+       left: -10%;
+     }
+     .modal-back-project{
+      width: 90%;
+      position: relative;
+      left: 5%;
+    }
+    .thankyou-modal{
+      width: 90%;
+      position: relative;
+      left: 5%;
+      top: -700px;
+    }
+    .bottom{
+      width: 60%;
+      height: 1400px;
+      margin-top: 50px;
+    }
+    .bottom-21-header{
+      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+    }
+    .bottom-21-body{
+     width: 100%;
+     height: 40%;
+     display: flex;
+     flex-direction: row;
+   }
+   .bottom-21-bottom{
+     width: 100%;
+     height: 30%;
+     text-align: center;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+   }
+   .bottom-21-bottom button{
+     margin-left: 30%;
+   }
+  }
+  @media screen and (min-width:350px) and (max-width:569px){
+      .upper-btns{
+        display: flex;
+        flex-direction: column;
+      }
+      .upper{
+        height: 400px;
+        width: 80%;
+        position: relative;
+        left: 10%;
+        top: -80px;
+      }
+      .stats{
+        position: absolute;
+        top: 700px;
+        height: 550px;
+        left: 10%;
+        width: 80%;
+        display: flex;
+        flex-direction:column;
+      }
+      .stats-upper{
+        height: 450px;
+        display: flex;
+        flex-direction:column;
+        width: 100%;
+      }
+      .stats-upper1{
+        width: 100%;
+        border-right: 0px;
+      }
+      .stats-upper1 h3{
+        font-size: 2rem;
+      }
+      #stat-1,#stat-2{
+        border: none;
+      }
+      #bookmarkBtn{
+        width: 0;
+        height: 0;
+        visibility: hidden;
+      }
+      #backthisBtn{
+        margin: 10px 0;
+      }
+      .upper-btns img{
+        visibility:visible;
+      }
+      .upper-btns{
+        position: relative;
+        top: 20%;
+      }
+      .upper-text p{
+        font-size: 1rem;
+        margin-top: 30px;
+      }
+      .upper-text h3{
+        font-size: 1.2rem;
+      }
+      .modal-back-project{
+        width: 100%;
+        position: relative;
+        top: -400px;
+        left: -0.5%;
+        display: flex;
+        height: 1650px;
+      }
+      .modal-box{
+        height: 300px;
+      }
+      .pledge{
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+      }
+      .continue-btn{
+        margin-top: 20px;
+      }
+      .modal-box-upper{
+        display: flex;
+        height: 150px;
+        flex-direction: column;
+      }
+      .thankyou-modal{
+        width: 100%;
+        position: relative;
+        top: -1500px;
+        left: -0.5%;
+      }
+      .bottom{
+        width: 80%;
+        height: 1600px;
+        position: relative;
+        left: 10%;
+        top: -1350px;
+      }
+      .bottom-21-header{
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+      }
+      .bottom-21-body{
+       width: 100%;
+       height: 40%;
+       display: flex;
+       flex-direction: row;
+     }
+     .bottom-21-bottom{
+       width: 100%;
+       height: 30%;
+       text-align: center;
+       display: flex;
+       flex-direction: column;
+       justify-content: space-between;
+     }
+     .bottom-21-bottom button{
+       margin-left: 20%;
+     }
+  }
